@@ -13,7 +13,7 @@ class Calculation:
         '''Return Calculation object'''
         return Calculation(a, b, op)
 
-    def perform_operation(self) -> Decimal:
+    def execute(self) -> Decimal:
         '''Perform calculation operation'''
         return self.op(self.a, self.b)
     
