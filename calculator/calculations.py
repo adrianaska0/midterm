@@ -1,5 +1,6 @@
 from decimal import Decimal
 from typing import List, Callable
+from calculator.calculation import Calculation
 
 class Calculations:
     active_history: List[Calculation] = []
@@ -19,10 +20,10 @@ class Calculations:
     @classmethod
     def get_latest(cls) -> Calculation:
         if cls.active_history:
-            return active_history[-1]
+            return cls.active_history[-1]
         return None
 
     @classmethod
-    def get_by_op(cls, op: str) -> List[Calculation]:
+    def get_by_op(cls, operation: str) -> List[Calculation]:
         '''check each calc in history, create list of calcs with matching op'''
-        return [c for c in cls.history if operation.__name__ == op]
+        return [c for c in cls.active_history if c.op.__name__ == operation]
