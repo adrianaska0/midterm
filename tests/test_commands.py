@@ -1,14 +1,16 @@
+#pylint: disable=unused-variable, ungrouped-imports
 '''Test command plugins'''
+from decimal import Decimal
 from unittest.mock import MagicMock
+import pytest
+from app.commands import Command_Handler
 from app.plugins.add import AddCommand
 from app.plugins.subtract import SubtractCommand
 from app.plugins.multiply import MultiplyCommand
 from app.plugins.divide import DivideCommand
 from app.plugins.exit import ExitCommand
 from app.plugins.menu import MenuCommand
-import pytest
-from app.commands import Command_Handler
-from decimal import Decimal
+
 
 def test_add_command(capfd):
     '''Test add command'''
@@ -39,6 +41,7 @@ def test_divide_command(capfd):
     assert out == "4\n", "The answer should be 4"
 
 def test_divide_zero_command(capfd):
+    '''Test divide by zero handling'''
     command = DivideCommand()
     with pytest.raises(ValueError):
         command.execute(Decimal('15'), Decimal('0'))
