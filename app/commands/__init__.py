@@ -24,7 +24,6 @@ class Command_Handler:
         '''Execute command from dictionary'''
         try:
             self.commands[command_name].execute(a, b)
-        except:
+        except KeyError:
             print(f"No such command {command_name}")
             logging.error(f"No such command {command_name}")
-            raise KeyError

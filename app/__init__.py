@@ -56,7 +56,6 @@ class App:
             user_input = (input(">>> ").strip().split())
             try:
                 cmd_name = user_input[0]
-                logging.debug(f"Command Name {cmd_name}")
                 if cmd_name.lower() == 'exit':
                     self.command_handler.execute_command(cmd_name, None, None)
                     break
@@ -68,7 +67,6 @@ class App:
                     continue
                 operands = [Decimal(op) for op in user_input[1:]]
                 self.command_handler.execute_command(cmd_name, *operands)
-            
             except IndexError:
                 logging.error("Usage: <operation> <operand> <operand>")
             except TypeError:

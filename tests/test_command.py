@@ -28,8 +28,7 @@ def test_execute_command(sample_handler, capfd):
 
 def test_execute_unknown(sample_handler, capfd):
     '''Test execute unknonwn command'''
-    with pytest.raises(KeyError):
-        sample_handler.execute_command("random", None, None)
+    sample_handler.execute_command("random", None, None)
     out, err = capfd.readouterr()
     assert out == "No such command random\n"
 
