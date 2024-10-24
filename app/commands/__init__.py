@@ -1,9 +1,9 @@
-from abc import ABC, abstract method
+from abc import ABC, abstractmethod
 import logging
 
 class Command(ABC):
     '''Command Class'''
-    @abstract method
+    @abstractmethod
     def execute(self, a, b):
         '''Abstract execute method'''
         self.a = a
@@ -18,6 +18,7 @@ class Command_Handler:
     def register_command(self, command_name: str, command: Command):
         '''Register a command to the dictionary'''
         self.commands[command_name] = command
+        logging.info(f"Plugin registered: {command_name}")
     
     def execute_command(self, command_name: str, a, b):
         '''Execute command from dictionary'''
