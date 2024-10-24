@@ -47,7 +47,6 @@ class App:
                         if issubclass(item, (Command)):
                             self.command_handler.register_command(plugin_name, item())
                     except TypeError:
-                        logging.error(f"Error loading plugin {item_name}")
                         continue
     
     def start(self):
