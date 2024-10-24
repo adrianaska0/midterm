@@ -1,5 +1,6 @@
 from app.commands import Command
 from calculator import Calculator
+import logging
 
 class AddCommand(Command):
     '''Perform Add Command'''
