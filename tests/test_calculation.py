@@ -1,4 +1,4 @@
-#pylint: disable=wildcard-import, unnecessary-dunder-call
+#pylint: disable=wildcard-import, unnecessary-dunder-call, invalid-name
 '''Test Calculation'''
 from decimal import Decimal
 import pytest

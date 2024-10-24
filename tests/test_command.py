@@ -1,6 +1,7 @@
+#pylint: disable=attribute-defined-outside-init, redefined-outer-name, unused-variable
 '''Test command methods'''
-import pytest
 from decimal import Decimal
+import pytest
 from app.commands import Command, Command_Handler
 
 class TestCommand(Command):
@@ -12,6 +13,7 @@ class TestCommand(Command):
 
 @pytest.fixture
 def sample_handler():
+    '''Sample handler for reuse'''
     command_handler = Command_Handler()
     command_handler.register_command("test", TestCommand())
     yield command_handler
@@ -33,6 +35,7 @@ def test_execute_unknown(sample_handler, capfd):
     assert out == "No such command random\n"
 
 def test_execute():
+    '''Test the execute command'''
     command = TestCommand()
     command.execute(Decimal('2'), Decimal('5'))
     assert command.a == Decimal('2')

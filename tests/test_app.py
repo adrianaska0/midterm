@@ -1,3 +1,4 @@
+'''Test app start functionality'''
 import pytest
 from app import App
 
@@ -10,6 +11,7 @@ def test_app_start_exit_command(monkeypatch):
     assert e.type == SystemExit
 
 def test_app_start_unknown_command(capfd, monkeypatch):
+    '''Test unknown command after program start'''
     inputs = iter(['random 2 2', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     app = App()
