@@ -64,7 +64,7 @@ class App:
                 elif len(user_input[1:]) == 0:
                     self.command_handler.execute_command(cmd_name, None, None)
                     continue
-                operands = [Decimal(op) for op in user_input]
+                operands = [Decimal(op) for op in user_input[1:]]
                 self.command_handler.execute_command(cmd_name, *operands)
             
             except IndexError:
