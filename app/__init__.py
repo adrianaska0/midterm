@@ -60,6 +60,9 @@ class App:
                 if cmd_name.lower() == 'exit':
                     self.command_handler.execute_command(cmd_name, None, None)
                     break
+                if cmd_name.lower() == 'menu':
+                    self.command_handler.execute_command(cmd_name, self.command_handler, None)
+                    continue
                 elif len(user_input[1:]) == 0:
                     self.command_handler.execute_command(cmd_name, None, None)
                     continue
