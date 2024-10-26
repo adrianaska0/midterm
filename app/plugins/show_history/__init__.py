@@ -9,5 +9,4 @@ class ShowHistoryCommand(Command):
             for item in Calculations.get_history():
                 print(item)
         except KeyError:
-            logging.error("No history")
             print("No history")
