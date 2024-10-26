@@ -51,8 +51,10 @@ Supported Commands
 * `divide`
 
 `Usage: <operation> <operand> <operand>`
-`multiply 3 10
-30`
+
+`>>>multiply 3 10`
+
+`30`
 
 ### History Management
 Supported Commands 
