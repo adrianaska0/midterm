@@ -59,22 +59,19 @@ def test_exit_command():
         command.execute()
     assert str(excinfo.value) == "Exiting..."
 
-@pytest.fixture
-def sample_handler():
+def test_menu_command(capfd):
+    '''Test menu menu command'''
     command_handler = Command_Handler()
     command_handler.register_command("subtract", MagicMock())
-    yield command_handler
-
-def test_menu_command(sample_handler, capfd):
-    '''Test menu menu command'''
-    sample_handler.register_command("menu", MagicMock())
-    MenuCommand().execute(sample_handler, None)
+    command_handler.register_command("menu", MagicMock())
+    MenuCommand().execute(command_handler, None)
     out, err = capfd.readouterr()
     assert "Available commands:" in out
     assert "- subtract" in out
     assert "- menu" in out
 
 def test_show_history_command(capfd):
+    '''Test show history command'''
     Calculations.clear_history()
     AddCommand().execute(Decimal('5'), Decimal('5'))
     DivideCommand().execute(Decimal('15'), Decimal('3'))
@@ -84,6 +81,7 @@ def test_show_history_command(capfd):
     assert "('id: 2', 'operation: divide', '15', '3')" in out, "Calculation not in output"
 
 def test_show_history_empty_command(capfd):
+    '''Test error handling for showing empty history'''
     Calculations.clear_history()
     ShowHistoryCommand().execute()
     out, err = capfd.readouterr()
@@ -118,4 +116,3 @@ def test_delete_calculation_error_command(capfd):
     out, err = capfd.readouterr()
     assert "Usage: delete_calc <id>\n" in out
     assert "Calculation with id 1 does not exist" in out
-

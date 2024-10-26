@@ -17,6 +17,12 @@ class LoadCsvCommand(Command):
             data_dir = './data'
         file_path = os.path.join(os.path.abspath(data_dir), self.file)
 
+        if not file_path.endswith('.csv'):
+            error_message = f"Invalid file type: {self.file}. Only CSV files allowed."
+            logging.error(error_message)
+            print(error_message)
+            return
+
         Calculations.clear_history()
         try:
             df_calc = pd.read_csv(file_path)
@@ -30,9 +36,12 @@ class LoadCsvCommand(Command):
                     logging.debug(f"Calculation logged: {op_name}, {Decimal(op_a)}, {Decimal(op_b)}")
                 except KeyError:
                     logging.error(f"No such command: {op_name}")
+                    print(f"No such command: {op_name}")
                 except InvalidOperation:
                     logging.error(f"Error: {op_a} or {op_b} is invalid")
+                    print(f"Error: {op_a} or {op_b} is invalid")
         except FileNotFoundError:
             logging.error(f"File not found {file_path}")
+            print(f"File not found {file_path}")
 
 
