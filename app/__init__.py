@@ -63,10 +63,10 @@ class App:
                     self.command_handler.execute_command(cmd_name, self.command_handler, None)
                     continue
                 elif len(user_input[1:]) == 1:
-                    self.command_handler.execute_command(cmd_name, user_input[1], self)
+                    self.command_handler.execute_command(cmd_name, self, user_input[1])
                     continue
                 elif len(user_input[1:]) == 0:
-                    self.command_handler.execute_command(cmd_name, None, None)
+                    self.command_handler.execute_command(cmd_name, self, None)
                     continue
                 operands = [Decimal(op) for op in user_input[1:]]
                 self.command_handler.execute_command(cmd_name, *operands)
