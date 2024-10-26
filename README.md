@@ -58,12 +58,12 @@ Supported Commands
 
 ### History Management
 Supported Commands 
-*`show_history` Shows calculator history
-*`clear_history` Clears calculator history
-*`delete_calc <id>` Deletes calculation from history with associated id
+* `show_history` Shows calculator history
+* `clear_history` Clears calculator history
+* `delete_calc <id>` Deletes calculation from history with associated id
 
-*`save_csv <file_name>` Copies all calculations into a `.csv` file specified by the user
-*`load csv <file_name>` Imports all calculaitions from a `.csv` file specified by the user
+* `save_csv <file_name>` Copies all calculations into a `.csv` file specified by the user
+* `load csv <file_name>` Imports all calculaitions from a `.csv` file specified by the user
 
 *`menu` Prints all available commands
 *`exit` Shuts down program
