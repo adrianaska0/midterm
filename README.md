@@ -23,7 +23,7 @@ Throughout the program, there are many instances of importing modules for use in
 
 
 ## Environment Variables
-Enviornment variables in this instacne were utilzes to specify the data directory for the `.csv` files. 
+Enviornment variables in this instacne were utilzed to specify the data directory for the `.csv` files. Information like this is sometimes different from machine to machine and may even be a sensitive data. That is why it is stored in the `.env` file.
 ![image](https://github.com/user-attachments/assets/4094238a-fff1-40f5-a901-8848c9385ab6)
 ![image](https://github.com/user-attachments/assets/8362689a-d6d3-43af-8fb3-8ab6da9664d2)
 ![image](https://github.com/user-attachments/assets/e56d2d16-f160-495c-9512-5dfe89b87da1)
