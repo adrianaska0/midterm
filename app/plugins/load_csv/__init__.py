@@ -41,6 +41,8 @@ class LoadCsvCommand(Command):
                     except InvalidOperation:
                         logging.error(f"Error: {op_a} or {op_b} is invalid")
                         print(f"Error: {op_a} or {op_b} is invalid")
+                logging.info(f"Calculations loaded from {file_path}")
+                print(f"Calculations loaded from {file_path}")
             except FileNotFoundError:
                 logging.error(f"File not found {file_path}")
                 print(f"File not found {file_path}")
