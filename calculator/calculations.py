@@ -20,6 +20,7 @@ class Calculations:
         if cls.active_history:
             return [(f"id: {calc_id}", f"operation: {calc.op.__name__}", str(calc.a), str(calc.b)) for calc_id, calc in cls.active_history.items()]
         else:
+            logging.error("No history")
             raise KeyError
 
     @classmethod
@@ -29,10 +30,10 @@ class Calculations:
         cls._next_id = 1
 
     @classmethod
-    def get_latest(cls) -> Tuple[int, Optional[Calculation]]:
+    def get_latest(cls) -> Calculation:
         '''get latest calculation from history'''
         if cls.active_history:
-            return (max(cls.active_history.keys()), cls.active_history[max(cls.active_history.keys())])
+            return cls.active_history[max(cls.active_history.keys())]
         return None
 
     @classmethod
@@ -43,7 +44,4 @@ class Calculations:
     @classmethod
     def delete_calculation(cls, id: int) -> Calculation:
         '''delete calculation by id'''
-        try:
-            return cls.active_history.pop(id)
-        except KeyError:
-            logging.error(f"Calculation with id {id} does not exist")
+        return cls.active_history.pop(id)

@@ -25,10 +25,11 @@ def test_get_history(test_calculations):
     history = Calculations.get_history()
     assert len(history) == 3, "Wrong expected number of calculations in history"
 
-def test_clear_history(test_calculations):
+def test_clear_history(test_calculations, capfd):
     '''Test clear calculation history'''
     Calculations.clear_history()
-    assert len(Calculations.get_history()) == 0, "History not cleared properly"
+    with pytest.raises(KeyError):
+        Calculations.get_history()
 
 def test_get_latest(test_calculations):
     '''Test get latest item in calculation history'''
