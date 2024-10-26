@@ -15,6 +15,9 @@ class SaveCsvCommand(Command):
             data_dir = app.settings.get('DATA_PATH')
             if not data_dir:
                 data_dir = './data'
+
+            os.makedirs(os.path.abspath(data_dir), exist_ok=True)
+            
             file_path = os.path.join(os.path.abspath(data_dir), self.file)
 
             if not file_path.endswith('.csv'):
