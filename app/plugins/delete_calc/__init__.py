@@ -3,7 +3,7 @@ from calculator.calculations import Calculations
 import logging
 
 class DeleteCalculationCommand(Command):
-    def execute(self, a, b):
+    def execute(self, a=None, b=None):
         self.b = b
         try:
             logging.info(f"Deleted record: {Calculations.delete_calculation(int(b))}")

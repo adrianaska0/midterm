@@ -103,7 +103,7 @@ def test_delete_calculation_command(capfd):
     Calculations.clear_history()
     AddCommand().execute(Decimal('3'), Decimal('5'))
     MultiplyCommand().execute(Decimal('3'), Decimal('3'))
-    DeleteCalculationCommand().execute('1')
+    DeleteCalculationCommand().execute(None,'1')
     out, err = capfd.readouterr()
     assert "Record with id 1 deleted.\n" in out, "Did not recieve response on delete"
     assert len(Calculations.get_history()) == 1, "Record not deleted properly"
@@ -111,8 +111,8 @@ def test_delete_calculation_command(capfd):
 def test_delete_calculation_error_command(capfd):
     '''Test error handling in delete calc'''
     Calculations.clear_history()
-    DeleteCalculationCommand().execute('a')
-    DeleteCalculationCommand().execute('1')
+    DeleteCalculationCommand().execute(None, 'a')
+    DeleteCalculationCommand().execute(None, '1')
     out, err = capfd.readouterr()
     assert "Usage: delete_calc <id>\n" in out
     assert "Calculation with id 1 does not exist" in out
