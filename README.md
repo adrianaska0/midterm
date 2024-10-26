@@ -41,3 +41,27 @@ In the `LoadCsvCommand` class we see both LBYL and EAFP being employed. I outer-
 ![image](https://github.com/user-attachments/assets/81652b8b-2cf7-415b-8fac-94dc9d70e88d)
 
 
+## How to Use
+
+### Arithmetic Commands 
+Supported Commands
+* `add`
+* `subtract`
+* `multiply`
+* `divide`
+
+`Usage: <operation> <operand> <operand>`
+`multiply 3 10
+30`
+
+### History Management
+Supported Commands 
+*`show_history` Shows calculator history
+*`clear_history` Clears calculator history
+*`delete_calc <id>` Deletes calculation from history with associated id
+
+*`save_csv <file_name>` Copies all calculations into a `.csv` file specified by the user
+*`load csv <file_name>` Imports all calculaitions from a `.csv` file specified by the user
+
+*`menu` Prints all available commands
+*`exit` Shuts down program
