@@ -13,6 +13,8 @@ class LoadCsvCommand(Command):
 
         # Get Absolute Path
         data_dir = app.settings.get('DATA_PATH')
+        if not data_dir:
+            data_dir = './data'
         file_path = os.path.join(os.path.abspath(data_dir), self.file)
 
         Calculations.clear_history()
