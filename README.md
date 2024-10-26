@@ -6,11 +6,11 @@
 
 The modules in the `Caculator` package each module has only one responsible. For instance `calculations.py` exclusivley handles the history of calculations, `calculation` handles the creation and execution of a calcualtion object, `operations` handles the operations, etc.
 
-## Open/Closed Principle
+### Open/Closed Principle
 
 The applicaton allows for new commands to be added to the system through the extension of the abstract class `Command`. 
 
-## Liskov Substitution Principle
+### Liskov Substitution Principle
 
 The superclass `Command` has subclasses with objects that replace the objects of the superclass. 
 
